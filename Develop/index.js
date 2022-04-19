@@ -122,7 +122,11 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    promptUser();
+    promptUser()
+    .then(value => {
+        const data = generateMarkdown(value);
+        writeToFile('./dist/README.md', data);
+    })
 }
 
 // Function call to initialize app
