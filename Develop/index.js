@@ -35,38 +35,70 @@ const promptUser = () => {
         {
             type: "input",
             name: "installation",
-            message: "Enter the installation instructions for your project."
+            message: "Enter the installation instructions for your project.",
+            validate: (descriptionInput) => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log("Please enter a description!");
+                    return false;
+                }
+            }
         },
         {
             type: "input",
             name: "usage",
-            message: "Please enter the usage instructions for your project."
+            message: "Please enter the usage instructions for your project.",
         },
         {
             type: "list",
             name: "license",
-            message: "Select a license for your project",
-            choices: ["MIT", "Apache", "GPL", "BSD", "None"]
+            message: "Select a license for your project. (required)",
+            choices: ["MIT", "Apache", "GPL", "BSD", "None"],
+            validate: (descriptionInput) => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log("Please pick a license!");
+                    return false;
+                }
+            }
         },
         {
             type: "input",
             name: "contributing",
-            message: "Enter the instructions for contributing to your project."
+            message: "Enter the instructions for contributing to your project.",
         },
         {
             type: "input",
             name: "username",
-            message: "Enter your GitHub username"
+            message: "Enter your GitHub username. (required)",
+            validate: (descriptionInput) => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your GitHub username!");
+                    return false;
+                }
+            }
         },
         {
             type: "input",
             name: "email",
-            message: "Enter your email address"
+            message: "Enter your email address. (required)",
+            validate: (descriptionInput) => {
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your email address!");
+                    return false;
+                }
+            }
         },
         {
             type: "input",
             name: "tests",
-            message: "Enter the instructions for testing your project"
+            message: "Enter the instructions for testing your project.",
         }
     ])
 };
