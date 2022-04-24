@@ -7,6 +7,11 @@ const { resolve } = require("path");
 
 // Create an array of questions for user input
 const promptUser = () => {
+    console.log(`
+    =================
+    Add a New Project
+    =================
+    `);
     return inquirer.prompt([
         {
             type: "input",
@@ -37,15 +42,7 @@ const promptUser = () => {
         {
             type: "input",
             name: "installation",
-            message: "Enter the installation instructions for your project.",
-            validate: (descriptionInput) => {
-                if (descriptionInput) {
-                    return true;
-                } else {
-                    console.log("Please enter a description!");
-                    return false;
-                }
-            }
+            message: "Enter the installation instructions for your project."
         },
         {
             type: "input",
@@ -55,16 +52,8 @@ const promptUser = () => {
         {
             type: "list",
             name: "license",
-            message: "Select a license for your project. (required)",
-            choices: ["MIT", "Apache", "GPL", "BSD", "None"],
-            validate: (descriptionInput) => {
-                if (descriptionInput) {
-                    return true;
-                } else {
-                    console.log("Please pick a license!");
-                    return false;
-                }
-            }
+            message: "Select a license for your project.",
+            choices: ["MIT", "Apache", "GPL", "BSD", "None"]
         },
         {
             type: "input",
@@ -75,8 +64,8 @@ const promptUser = () => {
             type: "input",
             name: "username",
             message: "Enter your GitHub username. (required)",
-            validate: (descriptionInput) => {
-                if (descriptionInput) {
+            validate: (userInput) => {
+                if (userInput) {
                     return true;
                 } else {
                     console.log("Please enter your GitHub username!");
@@ -88,8 +77,8 @@ const promptUser = () => {
             type: "input",
             name: "email",
             message: "Enter your email address. (required)",
-            validate: (descriptionInput) => {
-                if (descriptionInput) {
+            validate: (addressInput) => {
+                if (addressInput) {
                     return true;
                 } else {
                     console.log("Please enter your email address!");
