@@ -2,16 +2,9 @@
 const inquirer = require("inquirer");
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
-const { rejects } = require("assert");
-const { resolve } = require("path");
 
 // Create an array of questions for user input
 const promptUser = () => {
-    console.log(`
-    =================
-    Add a New Project
-    =================
-    `);
     return inquirer.prompt([
         {
             type: "input",
