@@ -96,16 +96,9 @@ const promptUser = () => {
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile('./dist/README.md', data, err => {
-        if (err) {
-            rejects(err)
-            return;
-        }
-
-        resolve({
-            ok: true,
-            message: 'File created!'
-        })
+    fs.writeFile('./dist/README.md', data, (err) => {
+        if (err) throw err;
+        console.log('Successfully created README.md~')
     })
 }
 
